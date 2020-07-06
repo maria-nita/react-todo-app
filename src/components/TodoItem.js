@@ -7,12 +7,11 @@ export class TodoItem extends Component {
             textDecoration: this.props.todo.completed ? 'line-through' : 'none'
         }
     }
-
     render() {
         return (
             <div className="todo-item" style={this.getStyle()}>
                 <p>
-                    <input type="checkbox" onChange={(e) => this.props.toggleComplete(this.props.todo.id, e)} />
+                    <input type="checkbox" checked={this.props.todo.completed} onChange={(e) => this.props.toggleComplete(this.props.todo.id, e)} />
                     {this.props.todo.title}
                     {/* <button onClick={this.props.removeTodo.bind(this, this.props.todo.id)}>x</button> */}
                     <button onClick={(e) => this.props.removeTodo(this.props.todo.id, e)}>x</button>

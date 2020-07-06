@@ -9,7 +9,7 @@ class App extends Component {
         todos: []
     }
     componentDidMount() {
-        axios.get('https://jsonplaceholder.typicode.com/todos?_limit=7').then(response => this.setState({ todos: response.data }))
+        axios.get('https://jsonplaceholder.typicode.com/todos?_limit=17').then(response => this.setState({ todos: response.data }))
     }
     removeTodo = (id) => {
         axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`).then(
