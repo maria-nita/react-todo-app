@@ -21,3 +21,14 @@ header {
     position: absolute;
     right: 0;
 }
+
+.add-todo {
+    display: flex;
+}
+
+.add-todo .field {
+    flex-basis: 90%;
+}
+.add-todo .btn {
+    flex-basis: 10%;
+}

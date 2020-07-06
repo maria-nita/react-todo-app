@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from './components/layout/Header'
 import TodoCollection from './components/TodoCollection';
+import AddTodo from './components/AddTodo';
 import axios from 'axios';
 import './App.css';
 
@@ -31,11 +32,22 @@ class App extends Component {
             )
         });
     }
+    addTodo = (title) => {
+        const newTodo = {
+            title,
+            completed: false
+        };
+        // send new todo item into collection then update state with new todo item
+        axios.post('https://jsonplaceholder.typicode.com/todos', newTodo).then(response => this.setState({
+            todos: [...this.state.todos, response.data]
+        }));
+    }
     render() {
         return (
             <div className="App">
                 <Header />
                 <div className="container">
+                    <AddTodo addTodo={this.addTodo} />
                     <TodoCollection todos={this.state.todos} removeTodo={this.removeTodo} toggleComplete={this.toggleComplete} />
                 </div>
             </div>
